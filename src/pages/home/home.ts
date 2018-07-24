@@ -7,8 +7,16 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  
+splash = true;
+homePage = HomePage;
 
-  }
+constructor(publicnavCtrl:NavController) {
+ 
+}
+
+ionViewDidLoad() {
+  setTimeout(() =>this.splash=false, 4000);
+}
 
 }
