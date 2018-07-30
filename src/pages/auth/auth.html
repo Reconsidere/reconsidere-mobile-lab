@@ -1,0 +1,24 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+       <div class="Aligner-item Aligner-item--top"></div>
+       <img src="./assets/imgs/reconsidereLogo.png">
+       <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-content padding>
+  <div *ngIf="isLoggedIn; else fblogin">
+    <h2>Hi, Teste</h2>
+    <p>
+      <button ion-button icon-right (click)="logout()">
+        Logout
+      </button>
+    </p>
+  </div>
+  <ng-template #facebookLogin>
+    <button ion-button icon-right (click)="fblogin()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Logar com Facebook
+    </button>
+  </ng-template>
+</ion-content>
