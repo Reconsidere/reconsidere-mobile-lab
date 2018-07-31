@@ -7,16 +7,16 @@
 </div>
 
 <ion-content padding>
-  <div *ngIf="isLoggedIn; else fblogin">
+  <div *ngIf="isLoggedIn">
     <h2>Hi, Teste</h2>
     <p>
-      <button ion-button icon-right (click)="logout()">
+      <button ion-button icon-right >
         Logout
       </button>
     </p>
   </div>
   <ng-template #facebookLogin>
-    <button ion-button icon-right (click)="fblogin()">
+    <button ion-button icon-right>
       <ion-icon name="logo-facebook"></ion-icon>
       Logar com Facebook
     </button>

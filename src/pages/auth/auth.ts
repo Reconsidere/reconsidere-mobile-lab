@@ -1,3 +1,4 @@
+import { StatusBar } from '@ionic-native/status-bar';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook'
@@ -21,13 +22,6 @@ export class AuthPage {
   isLoggedIn:boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fb: Facebook) {
-    fb.getLoginStatus()
-    .then(res => {
-      console.log(res.status);
-      if(res.status === "connect") { this.isLoggedIn = true;}
-      else { this.isLoggedIn = false; }
-    })
-    .catch(e => console.log(e));
   }
 
   fblogin(): Promise<any> {
