@@ -26,6 +26,7 @@ temp/
 platforms/
 plugins/
 plugins/android.json
+src/app/app.credentials.ts
 plugins/ios.json
 www/
 $RECYCLE.BIN/
