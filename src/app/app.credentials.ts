@@ -8,6 +8,11 @@ export const facebook = {
   }
 };
 
+export const gplus = {
+  config: {
+  }
+};
+
 export class Credentials {}
 
 
