@@ -1,0 +1,25 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="./assets/imgs/reconsidere-expanded-logo.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <img src="./assets/imgs/reconsidere-expanded-logo.png">
+    </ion-item>
+    <ion-item rounded>
+      <ion-label color="primary" stacked>Email</ion-label>
+      <ion-input [(ngModel)]="credentials.email" type="email" placeholder="exemplo@eowyn.com.br"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Senha</ion-label>
+      <ion-input [(ngModel)]="credentials.password" type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full round color="primary" (click)="login()">Entrar</button>
+  <button ion-button full round color="primary" (click)="signup()">Criar</button>
+</ion-content>
