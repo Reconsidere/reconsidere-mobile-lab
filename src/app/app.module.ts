@@ -1,3 +1,4 @@
+import { EmailComposer } from '@ionic-native/email-composer';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { firebase } from './app.credentials';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,14 +15,17 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Facebook } from '@ionic-native/facebook';
 import { AuthProvider } from '../providers/auth/auth';
 import { HttpClientModule } from '@angular/common/http';
+import { GeolocationProvider } from '../providers/geolocation/geolocation';
+import { SignupPage } from '../pages/signup/signup';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
+    SignupPage,
     HomePage,
     ListPage
   ],
@@ -29,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AngularFireModule.initializeApp(firebase.config),
     AngularFirestoreModule,
+    ChartsModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
   ],
@@ -36,16 +41,18 @@ import { HttpClientModule } from '@angular/common/http';
   entryComponents: [
     MyApp,
     LoginPage,
+    SignupPage,
     HomePage,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    Facebook,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    AngularFireAuth
+    AngularFireAuth,
+    GeolocationProvider,
+    EmailComposer
   ]
 })
 export class AppModule {}

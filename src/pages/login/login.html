@@ -7,19 +7,24 @@
 </div>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <img src="./assets/imgs/reconsidere-expanded-logo.png">
-    </ion-item>
-    <ion-item rounded>
-      <ion-label color="primary" stacked>Email</ion-label>
-      <ion-input [(ngModel)]="credentials.email" type="email" placeholder="exemplo@eowyn.com.br"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" stacked>Senha</ion-label>
-      <ion-input [(ngModel)]="credentials.password" type="password"></ion-input>
-    </ion-item>
-  </ion-list>
-  <button ion-button full round color="primary" (click)="login()">Entrar</button>
-  <button ion-button full round color="primary" (click)="signup()">Criar</button>
+  <img src="./assets/imgs/reconsidere-expanded-logo.png">
+  <ion-label color="primary" stacked>Email</ion-label>
+  <ion-input full round [(ngModel)]="credentials.email" type="email" placeholder="exemplo@eowyn.com.br"></ion-input>
+  <ion-label color="primary" stacked>Senha</ion-label>
+  <ion-input full round [(ngModel)]="credentials.password" type="password"></ion-input>
+  <button ion-button icon-left full round color="primary" (click)="login()">
+    <!--<ion-spinner name="circles" *ngIf="loading" item-left></ion-spinner>-->
+    Entrar
+  </button>
+  <button ion-button icon-left full round color="primary" (click)="signup()">
+    Criar
+  </button>
+  <button ion-button icon-left full round color="facebook" (click)="fblogin()">
+    <ion-icon name="logo-facebook" class="adjust-top"></ion-icon>
+    Facebook
+  </button>
+  <button ion-button icon-left full round color="google" (click)="gplogin()">
+    <ion-icon name="logo-googleplus" class="adjust-top"></ion-icon>
+    Google
+  </button>
 </ion-content>
