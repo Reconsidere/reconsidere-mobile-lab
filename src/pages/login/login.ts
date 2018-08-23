@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams, Toast, ToastController } from 'ion
 import { AuthProvider } from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
 import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+import { IntroPage } from '../intro/intro';
 
 /**
  * Generated class for the LoginPage page.
@@ -28,8 +30,8 @@ export class LoginPage {
               public navParams: NavParams,
               public http: HttpClient,
               public auth: AuthProvider,
-              public toastCtrl: ToastController
-
+              public toastCtrl: ToastController,
+              public storage: Storage
   ) {
   }
 
@@ -70,6 +72,13 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
+    this.storage.get('intro-done')
+    .then(done => {
+      if (!done) {
+        this.navCtrl.setRoot(IntroPage);
+        this.storage.set('intro-done', true);
+      }
+    });
     console.log('ionViewDidLoad LoginPage');
     setTimeout(() =>this.splash=false, 4000);
   }

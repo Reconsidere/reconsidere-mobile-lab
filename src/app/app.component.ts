@@ -1,3 +1,5 @@
+import { IntroPage } from './../pages/intro/intro';
+import { QrcodePage } from './../pages/qrcode/qrcode';
 import { LoginPage } from './../pages/login/login';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -22,7 +24,9 @@ export class MyApp {
     this.pages = [
       { title: 'Login', component: LoginPage },
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'List', component: ListPage },
+      { title: 'QR Code', component: QrcodePage },
+      { title: 'Introdução', component: IntroPage },
     ];
 
   }

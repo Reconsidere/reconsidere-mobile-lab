@@ -1,3 +1,5 @@
+import { QrcodePage } from './../pages/qrcode/qrcode';
+import { IntroPage } from './../pages/intro/intro';
 import { EmailComposer } from '@ionic-native/email-composer';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { firebase } from './app.credentials';
@@ -20,39 +22,48 @@ import { HttpClientModule } from '@angular/common/http';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
 import { SignupPage } from '../pages/signup/signup';
 import { ChartsModule } from 'ng2-charts';
+import { Storage } from '@ionic/storage';
+import { HandshakeProvider } from '../providers/handshake/handshake';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
+    IntroPage,
     LoginPage,
     SignupPage,
     HomePage,
-    ListPage
+    ListPage,
+    QrcodePage
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebase.config),
-    AngularFirestoreModule,
     ChartsModule,
+    HttpClientModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebase.config),
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    IntroPage,
     LoginPage,
     SignupPage,
     HomePage,
-    ListPage
+    ListPage,
+    QrcodePage
   ],
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     AngularFireAuth,
     GeolocationProvider,
-    EmailComposer
+    EmailComposer,
+    StatusBar,
+    SplashScreen,
+    HandshakeProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
