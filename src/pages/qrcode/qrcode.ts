@@ -1,6 +1,6 @@
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 /**
  * Generated class for the QrcodePage page.
@@ -16,33 +16,19 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 })
 export class QrcodePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private qrScanner: QRScanner) {
+  qrData: any;
+  scannedCode: any;
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner) {
   }
 
-  openScanner() {
-    this.qrScanner.prepare()
-    .then((status: QRScannerStatus) => {
-      if (status.authorized) {
-        let scan = this.qrScanner.scan()
-        .subscribe((code: string) => {
-          console.log('Scanned something', code);
-          this.qrScanner.hide();
-          scan.unsubscribe();
-        })
-      }
-      if(status.denied) {
-        console.log('Permissão negada ao qr scanner');
-      }
-    })
-    .catch((e: any) => {
-      console.log('Scanner Error', e);
+  scan() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.scannedCode = barcodeData.text;
+    }, (err) => {
+        console.log('Error: ', err);
     });
-  }
-
-  confirmRead() {}
-
-  closeScanner() {
-    this.qrScanner.hide();
   }
 
   ionViewDidLoad() {

@@ -1,3 +1,4 @@
+import {BarcodeScanner} from '@ionic-native/barcode-scanner';
 import { QrcodePage } from './../pages/qrcode/qrcode';
 import { IntroPage } from './../pages/intro/intro';
 import { EmailComposer } from '@ionic-native/email-composer';
@@ -56,6 +57,7 @@ import { IonicStorageModule } from '@ionic/storage';
     QrcodePage
   ],
   providers: [
+    BarcodeScanner,
     AuthProvider,
     AngularFireAuth,
     GeolocationProvider,
